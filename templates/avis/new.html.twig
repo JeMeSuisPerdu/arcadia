@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Soumettre un avis{% endblock %}
+
+{% block body %}
+{{ navbar() }}
+
+<h2 style="text-align: center;color: #000000;padding: 50px;width: 100%;background-color: #fffffff7;margin: 0;">Votre avis compte pour nous, alors n'hésitez pas !</h2>
+<div class="form-container">
+      <div class="form">
+          {{ form_start(form) }}
+      <div class="logo-container" style="margin-bottom: 10px;">
+        <strong>Envoyer un avis ? 📝</strong>
+      </div>
+
+        <div class="form-group">
+          <label for="pseudo">{{ form_label(form.pseudo) }}</label>
+          {{ form_widget(form.pseudo, {'attr': {'id': 'pseudo'}}) }}
+        </div>
+
+        <div class="form-group">
+          <label for="commentaire-text">{{ form_label(form.commentaire) }}</label>
+          {{ form_widget(form.commentaire, {'attr': {'id': 'commentaire-text'}}) }}
+        </div>
+
+        <div class="form-group-checkbox">
+          <label for="checkbox-visible" style="margin-right:10px;">{{ form_label(form.visible) }}</label>
+          {{ form_widget(form.visible, {'attr': {'id': 'checkbox-visible'}}) }}
+        </div>
+
+        {{ form_widget(form.submit, {'attr': {'class': "form-submit-btn"}}) }}
+      </div>
+    {{ form_end(form) }}
+</div>
+
+
+<style>
+.form-container{
+    display: flex;
+    justify-content: center;
+}
+#avis_form_commentaire{
+    height:150px;
+    resize: none;
+}
+.form-group-checkbox{
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+}
+.form-container .logo-container {
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.form-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-container .form-group input {
+    width: 93%;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-family: inherit;
+  border: 1px solid #ccc;
+}
+
+.form-container .form-group input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+  outline: none;
+  border-color: #1778f2;
+}
+
+.form-container .form-submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  color: #fff;
+  background-color: #212121;
+  border: none;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin: 12px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+}
+
+.form-container .form-submit-btn:hover {
+  background-color: #313131;
+}
+
+.form-container .link {
+  color: #1778f2;
+  text-decoration: none;
+}
+
+.form-container .signup-link {
+  align-self: center;
+  font-weight: 500;
+}
+
+.form-container .signup-link .link {
+  font-weight: 400;
+}
+
+.form-container .link:hover {
+  text-decoration: underline;
+}
+
+
+</style>
+{% endblock %}

@@ -1,0 +1,260 @@
+#svg-line {
+  fill: #17292c;
+}
+
+.home-box {
+  width: 100%;
+}
+
+.home-box h1 {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 2.4rem;
+  font-family: Muli, sans-serif;
+  margin-bottom: 100px;
+}
+
+.header-section {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.presentation-section {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.presentation-content {
+  display: flex;
+  align-items: center;
+  max-width: 1400px;
+  flex-direction: row-reverse;
+  padding-bottom: 20px;
+}
+
+
+.img-zoo-home-container {
+  margin-right: 15px;  
+}
+.img-zoo-home-container img {
+  width: 490px;
+  height: 322px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.zoo-description {
+  margin-right: 200px;
+  flex: 1;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+.home-presentation-2{
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.979);
+}
+.home-box h2{
+  display: flex;
+  justify-content: center;  
+  padding: 40px;
+  font-family: Muli, sans-serif;
+  font-size: 1.9rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 100px;
+}
+
+.card {
+  height: 350px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 90px;
+  width: 280px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  border:2px solid #ff9700;
+  transform: scale(1.05); 
+  cursor: pointer;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.card-content {
+  padding: 5px;
+  text-align: center;
+  background-color: #075144;
+}
+
+.card-title {
+  font-size: 1.5rem; 
+  margin: 0; 
+  color: #ffffff;
+}
+
+/* ------------------------ */
+
+.home-presentation-3{
+  background-color: #17292c;
+  width: 100%;
+}
+.titreHome3{
+  color: white;
+}
+.home-section-3{
+  display: flex;
+  justify-content: center;
+}
+
+.presentation-content3{
+  display: flex;
+    align-items: center;
+    max-width: 1400px;
+    padding-bottom: 20px;
+}
+.description3{
+  margin-left: 200px;
+  flex: 1;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+
+/* -------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+:root {
+  --marquee-width: 100vw;
+  --marquee-height: 20vh;
+  --marquee-elements-displayed: 3;
+  --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+  --marquee-animation-duration: calc(var(--marquee-elements) * 5s);
+}
+
+.marquee-container {
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+.marquee {
+  width: var(--marquee-width);
+  height: var(--marquee-height);
+  background-color: #e7e7e7f7;
+  color: #000;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.marquee-content {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling var(--marquee-animation-duration) linear infinite;
+}
+
+@keyframes scrolling {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
+}
+
+.marquee-content li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--marquee-element-width);
+  font-size: calc(var(--marquee-height) * 0.12);
+  white-space: nowrap;
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+
+.testimonial {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  border: 2px solid #ffc20f;
+}
+
+.testimonial-text {
+  font-size: 18px;
+  font-style: italic;
+  color: #444;
+}
+
+.testimonial-author {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --marquee-width: 100vw;
+    --marquee-height: 16vh;
+    --marquee-elements-displayed: 2;
+  }
+
+  .marquee:before, .marquee:after { width: 5rem; }
+
+  .testimonial-text {
+    font-size: 16px;
+  }
+
+  .testimonial-author {
+    font-size: 14px;
+  }
+}

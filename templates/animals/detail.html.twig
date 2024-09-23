@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'Animal{% endblock %}
+
+{% block body %}
+    {{ navbar() }}
+    <h1>{{ animal.prenom }} ({{ animal.race }})</h1>
+    <img src="{{ animal.imageUrl }}" alt="{{ animal.prenom }}">
+    
+    <h2>État de santé et avis du vétérinaire</h2>
+    <ul>
+        {% for review in veterinaryReviews %}
+            <li>
+                <p>Date : {{ review.datePassage|date('d/m/Y') }}</p>
+                <p>État : {{ review.etatAnimal }}</p>
+                <p>Nourriture : {{ review.nourriture }} ({{ review.grammage }} grammes)</p>
+                {% if review.details %}
+                    <p>Détails supplémentaires : {{ review.details }}</p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

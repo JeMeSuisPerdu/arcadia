@@ -1,0 +1,19 @@
+{# templates/navbar/navbar.html.twig #}
+
+<div class="auth-links"  data-turbolinks="false">
+    <div class="home-navbar-container container">
+        <a class="logo-site" href="{{ path('app_home') }}">🌎 Arcadia</a>
+        <ul class="navbar-infos-container">
+            <li><a href="{{ path('app_services_list') }}">Accès Service</a></li>
+            <li><a href="{{ path('habitats_list') }}">Accès Habitat</a></li>
+            <li><a href="{{ path('avis_new') }}">Laisser un avis</a></li>
+            <li><a href="/shop">Contact</a></li>
+        </ul>
+{% if app.user %}
+    <a class="home-icon-account" href="{{ path('app_logout') }}">Déconnexion</a>
+{% else %}
+    <a class="home-icon-account" href="{{ path('app_login') }}">Connexion</a>
+{% endif %}
+
+    </div>
+</div>

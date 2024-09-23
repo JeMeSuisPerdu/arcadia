@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Habitats{% endblock %}
+
+{% block body %}
+    {{ navbar() }}
+    <div class="habitat-detail-container">
+    <h1 class="titre-habitat">Les habitats de vos animaux préférés</h1>
+    <div class="card-container">
+        {% for habitat in habitats %}
+            <div class="card">
+                <img src="{{ habitat.image|first.getImageData() }}" alt="{{ habitat.nom }}">
+                <div class="card-content">
+                <a href="{{ path('habitat_detail', {id: habitat.id}) }}">
+                    <h3>{{ habitat.nom }}</h3>
+                    <a href="{{ path('habitat_detail', {id: habitat.id}) }}">Voir les détails</a>
+                </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+
+    <div class="habitat-tips">
+    <h2>Conseils du zoo pour prendre soin des habitats</h2>
+    <ul>
+        <li>
+            <h3>Qu'est-ce qu'un habitat ?</h3>
+            <p>Un habitat est l'environnement naturel dans lequel une espèce vit, se nourrit et se reproduit. Chaque espèce a des besoins spécifiques en matière d'espace, de nourriture et de conditions climatiques.</p>
+        </li>
+        <li>
+            <h3>Importance de la reproduction des habitats</h3>
+            <p>Reproduire les habitats naturels dans les zoos permet de créer un environnement qui répond aux besoins physiologiques et comportementaux des animaux. Cela contribue à leur bien-être et à leur santé mentale.</p>
+        </li>
+        <li>
+            <h3>Créer des zones adaptées</h3>
+            <p>Utilisez des matériaux naturels, des plantes, des roches et de l'eau pour reproduire le plus fidèlement possible l'habitat d'origine de l'animal.</p>
+        </li>
+        <li>
+            <h3>Varier les éléments de l'habitat</h3>
+            <p>Intégrez différents niveaux (terrains, arbres, points d'eau) pour offrir des possibilités d'exploration et de jeu, favorisant ainsi une stimulation mentale et physique.</p>
+        </li>
+        <li>
+            <h3>Observer les comportements naturels</h3>
+            <p>Les soins apportés aux animaux dans les habitats doivent inclure l'observation de leurs comportements naturels pour ajuster les installations en fonction de leurs besoins.</p>
+        </li>
+        <li>
+            <h3>Formation et sensibilisation</h3>
+            <p>Éduquez le personnel et le public sur l'importance de préserver les habitats naturels et comment chacun peut contribuer à la conservation.</p>
+        </li>
+    </ul>
+</div>
+
+<style>
+
+
+.habitat-detail-container{
+    width:100%;
+    background-color:#203d41;
+}
+.titre-habitat {
+    text-align: center;
+    color: white;
+    padding: 50px;
+    margin: 0;
+}
+
+.card-content h3 {
+    color:white;
+}
+.card a {
+    color:#ffb03e
+}
+.card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.habitat-tips {
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.habitat-tips h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 40px;
+}
+
+.habitat-tips ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    max-width: 1200px;
+    gap: 30px;
+    flex-direction: row;
+    margin: 0 auto;
+
+}
+
+.habitat-tips li {
+    margin: 15px 0;
+}
+
+.habitat-tips h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #004652;
+}
+
+.habitat-tips p {
+    margin: 5px 0 15px 0;
+    line-height: 1.6;
+    color:black;
+}
+
+</style>
+{% endblock %}

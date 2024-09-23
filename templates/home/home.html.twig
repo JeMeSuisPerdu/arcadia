@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    {{ navbar() }}
+
+    <div class="home-container">
+        <div class="header-section">
+            <div class="header-background">
+                <video class="header-image" autoplay muted loop>
+                    <source src="{{ asset('video/background.mp4') }}" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+                <div class="header-overlay"></div>
+            </div>
+        </div>
+        
+        <div class="home-box">
+            <div class="presentation-container">
+                <h1>Offrez un beau cadeau à vos proches 😊</h1>
+            </div>
+
+            <div class="presentation-section">
+                <div class="presentation-content">
+                    <div class="img-zoo-home-container">
+                        <img src="{{ asset('img/home/zoo.jpg') }}" alt="Zoo Arcadia">
+                    </div>
+                    <p class="zoo-description">Fondé en 1960, Arcadia est un zoo situé au cœur de la Bretagne, et où la découverte des merveilles du règne animal se conjugue avec une préservation rigoureuse de leur bien-être.</p>
+                </div>
+            </div>
+
+            <div class="home-presentation-2">
+                <h2>🌿 Arcadia c'est différents habitats soigneusement recréés...</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="{{ asset('img/home/marais.jpg') }}" alt="Image 1" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Marais</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="{{ asset('img/home/jungle.jpg') }}" alt="Image 2" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Jungle</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="{{ asset('img/home/savane.jpg') }}" alt="Image 3" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Savane</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="titreHome3">🦒 Nous nous engageons pour le Bien-être Animal</h2>
+            <div class="home-section-3">
+            <div class="presentation-section">
+                <div class="presentation-content3">
+                    <div class="img-zoo-home-container">
+                        <img src="/img/home/respect.jpg" alt="Zoo Arcadia">
+                    </div>
+                    <p class="description3">Fondé en 1960, Arcadia est un zoo situé au cœur de la Bretagne, et où la découverte des merveilles du règne animal se conjugue avec une préservation rigoureuse de leur bien-être.</p>
+                </div>
+            </div>
+            </div>
+
+<div class="marquee-container">
+  <div class="marquee">
+    <ul class="marquee-content">
+      {% for a in avis %}
+      <li>
+        <div class="testimonial">
+          <p class="testimonial-text">"{{ a.commentaire }}"</p>
+          <p class="testimonial-text">˚˖𓍢ִ໋🍃</p>
+          <h3 class="testimonial-author">- {{ a.pseudo }}</h3>
+        </div>
+      </li>
+      {% else %}
+            <p>Aucun avis à afficher.</p>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+            
+        </div>
+    </div>
+
+
+<script>
+    const root = document.documentElement;
+    const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+    const marqueeContent = document.querySelector("ul.marquee-content");
+
+    root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+
+    for(let i=0; i<marqueeElementsDisplayed; i++) {
+        marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+    }
+</script>
+{% endblock %}

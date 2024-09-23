@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ habitat.nom }} | Détail sur l'habitat {% endblock %}
+
+{% block body %}
+    {{ navbar() }}
+<div class="animals-page-container">
+    <div class="info-animal-habitat">
+        <h1 style="display: flex; justify-content: center; margin: 0;padding: 35px;">Découvrez cet environnement naturel ({{ habitat.nom }})</h1>
+        <p style="max-width: 60%;margin: auto;">{{ habitat.description }}</p>
+        <p style="display: flex; justify-content: center;padding: 25px;">{{ habitat.getCommentaireHabitat() }} 😉</p>
+    </div>
+
+    <h2 style="display: flex; justify-content: center; color: white;padding: 25px;">Nos animaux qui vivent dans cet écosystème</h2>
+    
+<div class="animal-cards">
+    {% for animal in animals %}
+        <div class="card-animal">
+            <div class="card-animal-image">
+                {% for image in animal.getImage() %}
+                    <img src="{{ path('image_show', {id: image.id}) }}" alt="Image de {{ animal.prenom }}">
+                {% endfor %}
+            </div>
+            <div class="card-animal-content">
+                <h2>{{ animal.prenom }}</h2>
+                <p style="color:black;">🧬 Race : <strong>{{ animal.getRace().label }}</strong></p>
+                <p style="color:black;">🌡️ Etat de santé : <strong>{{ animal.etat }}</strong></p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+</div>
+
+
+<style>
+
+.info-animal-habitat {
+    width:100%;
+    background-color:white;
+}
+.info-animal-habitat h1{
+    color:black;
+}
+.info-animal-habitat p{
+    color:black;
+}
+.animal-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card-animal {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card-animal:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.card-animal-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-animal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-animal-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-animal-content h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+</style>
+
+{% endblock %}
