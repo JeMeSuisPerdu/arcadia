@@ -7,7 +7,7 @@
             <li><a href="{{ path('app_services_list') }}">Accès Service</a></li>
             <li><a href="{{ path('habitats_list') }}">Accès Habitat</a></li>
             <li><a href="{{ path('avis_new') }}">Laisser un avis</a></li>
-            <li><a href="/shop">Contact</a></li>
+            <li><a href="{{ path('contact') }}">Contact</a></li>
         </ul>
 {% if app.user %}
     <a class="home-icon-account" href="{{ path('app_logout') }}">Déconnexion</a>
